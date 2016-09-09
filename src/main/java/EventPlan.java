@@ -1,11 +1,11 @@
 class EventPlan {
   public int mGuests;
   public String mFood;
-  public  boolean mBand;
+  public String mBand;
   public String mBar;
-  public boolean mWeekend;
+  public String mWeekend;
 
-  public EventPlan(int guests, String food, boolean band, String bar, boolean weekend){
+  public EventPlan(int guests, String food, String band, String bar, String weekend){
     mGuests = guests;
     mFood = food;
     mBand = band;
