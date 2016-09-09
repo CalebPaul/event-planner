@@ -1,6 +1,4 @@
 import java.io.Console;
-import java.util.List;
-import java.util.ArrayList;
 
 public class App {
   public static void main(String[] args) {
@@ -30,7 +28,7 @@ public class App {
 
     EventPlan userEvent = new EventPlan(guests, food, band, bar, weekend);
     String userQuote = userEvent.getQuote();
-    System.out.println("\n" + "This event will cost approximately $" + userQuote + ".");
+    System.out.println("\n" + "This event will cost $" + userQuote + ".");
 
   }
 }

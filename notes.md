@@ -19,6 +19,6 @@
 
  * Project is in a polished, portfolio-quality state.
 
- * Code and Git documentation follows best practices  (descriptive variables names, proper indentation and spacing, separation between front and back-end logic, detailed commit messages in the correct tense, and a well-formatted README).
+ * Code and Git documentation follows best practices (descriptive variables names, proper indentation and spacing, separation between front and back-end logic, detailed commit messages in the correct tense, and a well-formatted README).
 
  * You are able to discuss your code with an instructor using the correct terminology.
