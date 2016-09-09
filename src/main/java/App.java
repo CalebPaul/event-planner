@@ -8,7 +8,7 @@ public class App {
     System.out.println("Welcome to Caleb's Event Planning App!\n" +
     "Please answer the following questions and a quote will be generated for you.");
 
-    System.out.println("How many attendees are you expecting?\n" +
+    System.out.println("\n" + "How many attendees are you expecting?\n" +
     "Please enter a number:");
     int guests = Integer.parseInt(myConsole.readLine());
 
@@ -30,7 +30,7 @@ public class App {
 
     EventPlan userEvent = new EventPlan(guests, food, band, bar, weekend);
     String userQuote = userEvent.getQuote();
-    System.out.println(userQuote);
+    System.out.println("\n" + "This event will cost approximately $" + userQuote + ".");
 
   }
 }
