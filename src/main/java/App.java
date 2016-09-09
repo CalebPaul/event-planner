@@ -28,5 +28,9 @@ public class App {
     "Please enter 'yes' or 'no' :");
     String weekend = myConsole.readLine();
 
+    EventPlan userEvent = new EventPlan(guests, food, band, bar, weekend);
+    String userQuote = userEvent.getQuote();
+    System.out.println(userQuote);
+
   }
 }

@@ -11,6 +11,14 @@ class EventPlan {
     mBand = band;
     mBar = bar;
     mWeekend = weekend;
+  }
+
+  public String getQuote(){
+    int quote = 0;
+    String stringQuote = "";
+    quote = mGuests * 2;
+    stringQuote = Integer.toString(quote);
+    return stringQuote;
+  }
+
 }
-}
-/*2, "snack", true, "beer"*/
