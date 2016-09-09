@@ -29,6 +29,7 @@ public class App {
     EventPlan userEvent = new EventPlan(guests, food, band, bar, weekend);
     String userQuote = userEvent.getQuote();
     System.out.println("\n" + "This event will cost $" + userQuote + ".");
+    System.out.println("Your " + userEvent.getGuests() + " guests will have a great time!");
 
   }
 }

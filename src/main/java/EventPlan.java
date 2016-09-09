@@ -1,9 +1,9 @@
 class EventPlan {
-  public int mGuests;
-  public String mFood;
-  public String mBand;
-  public String mBar;
-  public String mWeekend;
+  private int mGuests;
+  private String mFood;
+  private String mBand;
+  private String mBar;
+  private String mWeekend;
 
   public EventPlan(int guests, String food, String band, String bar, String weekend){
     mGuests = guests;
@@ -12,6 +12,11 @@ class EventPlan {
     mBar = bar;
     mWeekend = weekend;
   }
+
+  public Integer getGuests(){
+    return mGuests;
+  }
+
 
   public String getQuote(){
     int quote = 0;
