@@ -1,35 +1,33 @@
-import java.io.Console;
+import java.util.Map;
+import java.util.HashMap;
+import spark.ModelAndView;
+import spark.template.velocity.VelocityTemplateEngine;
+import static spark.Spark.*;
 
 public class App {
   public static void main(String[] args) {
-    Console myConsole = System.console();
-    System.out.println("Welcome to Caleb's Event Planning App!\n" +
-    "Please answer the following questions and a quote will be generated for you.");
 
-    System.out.println("\n" + "How many attendees are you expecting?\n" +
-    "Please enter a number:");
-    int guests = Integer.parseInt(myConsole.readLine());
+    get("/", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/form.vtl");
+      return new ModelAndView(model, "templates/layout.vtl");
+    }, new VelocityTemplateEngine());
 
-    System.out.println("Which food option would you prefer?\n" +
-    "Please enter 'snacks', 'buffet', or 'catered' :");
-    String food = myConsole.readLine();
+    get("/result", (request, response) -> {
+      Map<String , Object> model = new HashMap<String, Object>();
+      String stringUserGuests = request.queryParams("guests");
+      int intUserGuests = Integer.parseInt(stringUserGuests);
 
-    System.out.println("Will you be booking a live band?\n" +
-    "Please enter 'yes' or 'no' :");
-    String band = myConsole.readLine();
+      String stringUserFood = request.queryParams("food");
+      String stringUserBand = request.queryParams("band");
+      String stringUserBar = request.queryParams("bar");
+      String stringUserWeekend = request.queryParams("weekend");
 
-    System.out.println("Would you like a full bar provided?\n" +
-    "Please enter 'yes' or 'no' :");
-    String bar = myConsole.readLine();
-
-    System.out.println("Is your event scheduled on a weekend?\n" +
-    "Please enter 'yes' or 'no' :");
-    String weekend = myConsole.readLine();
-
-    EventPlan userEvent = new EventPlan(guests, food, band, bar, weekend);
-    String userQuote = userEvent.getQuote();
-    System.out.println("\n" + "This event will cost $" + userQuote + ".");
-    System.out.println("Your " + userEvent.getGuests() + " guests will have a great time!");
-
+      EventPlan userEvent = new EventPlan(intUserGuests, stringUserFood, stringUserBand, stringUserBar, stringUserWeekend);
+      model.put("result", userEvent.getQuote());
+      model.put("template", "templates/result.vtl");
+      model.put("guests", intUserGuests);
+      return new ModelAndView(model, "templates/layout.vtl");
+    }, new VelocityTemplateEngine());
   }
 }
